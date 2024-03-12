@@ -1,0 +1,34 @@
+# LAB-11.1
+66543206088-7 นายศุภกร ศิริเมืองมูล
+
+#include <stdio.h>
+
+int BinSearch( int data[], int n, int find ) ;
+
+int main() {
+ 	int data[ 6 ] = { 1, 2, 3, 4, 5, 7 } ;
+ 	int n = 6, find = 5 ;
+ 	int pos = BinSearch( data, n, find ) ;
+ 	if ( pos != -1 ) {
+        printf( "Found %d at %d\n", find, pos ) ;
+    } else {
+        printf( "Element not found\n" ) ;
+    }//end if
+ 	return 0 ;
+}//end function
+
+int BinSearch( int data[], int n, int find ) {
+	int i, j, m, pos ;
+	i = 0 ;
+	j = n - 1 ;
+	while( i < j ) {
+		m = ( i + j ) / 2 ;
+		if( data[m] < find ) {
+			i = m +1 ;
+		} else {
+			j = m ;
+		}//end if
+	}//end while
+	pos = ( data[i] == find ? i : -1 ) ;
+	return pos ;
+}//end BinSearch function
